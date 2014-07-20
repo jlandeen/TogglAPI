@@ -25,10 +25,6 @@ namespace TogglApi.Entities
 
         #endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public IEnumerable<Client> Get()
         {
             var client = new RestClient(Constants.Urls.ME_CLIENTS);
@@ -42,11 +38,6 @@ namespace TogglApi.Entities
             return resp.Data;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public Client Get(string id)
         {
             var client = new RestClient();
@@ -63,7 +54,6 @@ namespace TogglApi.Entities
 
         public Client Update(Client entity)
         {
-            //var client = new RestClient(Constants.Urls.ME_CLIENTS + "/{clientId}");
             var client = new RestClient();
             var request = new RestRequest(Constants.Urls.ME_CLIENTS + "/{clientId}", Method.PUT);
             request.AddTogglAuth(_auth);
@@ -74,10 +64,6 @@ namespace TogglApi.Entities
             
             string test = entity.ToString();
 
-            //request.AddBody(test, "client");
-            
-            //request.AddParameter("client", entity, ParameterType.RequestBody);
-            //request.AddObject(entity);
             var resp = client.Execute<ClientResponse>(request);
 
             var content = resp.Content;
@@ -87,12 +73,42 @@ namespace TogglApi.Entities
 
         public Client Create(Client entity)
         {
-            throw new NotImplementedException();
+            //Create Requests are handled via a Post Method
+            var client = new RestClient();
+            var request = new RestRequest(Constants.Urls.ME_CLIENTS, Method.POST);
+            request.AddTogglAuth(_auth);
+            request.RequestFormat = DataFormat.Json;
+            UpdateClientRequest updateClientRequest = new UpdateClientRequest() { client = entity };
+            request.AddBody(updateClientRequest);
+
+            string test = entity.ToString();
+
+            var resp = client.Execute<ClientResponse>(request);
+
+            var content = resp.Content;
+
+            return resp.Data.data;
         }
 
         public bool Delete(Client entity)
         {
-            throw new NotImplementedException();
+            var client = new RestClient();
+            var request = new RestRequest(Constants.Urls.ME_CLIENTS + "/{clientId}", Method.DELETE);
+            request.AddTogglAuth(_auth);
+            request.AddUrlSegment("clientId", entity.id.ToString());
+            request.RequestFormat = DataFormat.Json;
+            UpdateClientRequest updateClientRequest = new UpdateClientRequest() { client = entity };
+            request.AddBody(updateClientRequest);
+
+            string test = entity.ToString();
+
+            var resp = client.Execute<ClientResponse>(request);
+
+            var content = resp.Content;
+
+            bool result = false;
+            if (content.ToString() == "200 OK") { result = true; };
+            return result;
         }
 
         
