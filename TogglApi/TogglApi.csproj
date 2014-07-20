@@ -56,12 +56,14 @@
   <ItemGroup>
     <Compile Include="Api.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Entities\Tags.cs" />
     <Compile Include="Entities\Clients.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\Projects.cs" />
     <Compile Include="Entities\Tasks.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Models\BlogPost.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Invitation.cs" />
     <Compile Include="Models\ITogglModel.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Models\TogglAuthRequest.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Workspace.cs" />
+    <Compile Include="NetworkModels\UpdateTagRequest.cs" />
     <Compile Include="NetworkModels\UpdateClientRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Users.cs" />

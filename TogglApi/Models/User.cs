@@ -64,6 +64,11 @@ namespace TogglApi.Models
             return this.id == u.id;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         #endregion
     }
 }

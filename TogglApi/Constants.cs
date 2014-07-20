@@ -17,6 +17,7 @@ namespace TogglApi
             public const string ME_CLIENTS = API_URL + "/clients";
             public const string ME_PROJECT = API_URL + "/projects";
             public const string ME_WORKSPACES = API_URL + "/workspaces";
+            public const string ME_TAGS = API_URL + "/tags";
         }
 
 
