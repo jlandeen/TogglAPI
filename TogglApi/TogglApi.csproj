@@ -73,6 +73,7 @@
     <Compile Include="Models\TogglAuthRequest.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Workspace.cs" />
+    <Compile Include="NetworkModels\UpdateProjectRequest.cs" />
     <Compile Include="NetworkModels\UpdateTagRequest.cs" />
     <Compile Include="NetworkModels\UpdateClientRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

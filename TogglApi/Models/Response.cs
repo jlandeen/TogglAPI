@@ -26,4 +26,10 @@ namespace TogglApi.Models
     {
         public override Tag data { get; set; }
     }
+    
+    public class ProjectResponse : TogglResponse<Project>
+    {
+        public override Project data { get; set; }
+    }
+
 }

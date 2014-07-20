@@ -16,10 +16,14 @@ namespace TogglApi.Models
         public bool is_private { get; set; }
         public bool active { get; set; }
         public bool template { get; set; }
+        public int template_id { get; set; }
         public string at { get; set; }
         public string created_at { get; set; }
         public string color { get; set; }
         public bool auto_estimates { get; set; }
+        public int estimated_hours { get; set; }
+        public float rate { get; set; }
         public string guid { get; set; }
+        public string created_at { get; set; }
     }
 }
