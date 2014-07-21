@@ -24,6 +24,5 @@ namespace TogglApi.Models
         public int estimated_hours { get; set; }
         public float rate { get; set; }
         public string guid { get; set; }
-        public string created_at { get; set; }
     }
 }

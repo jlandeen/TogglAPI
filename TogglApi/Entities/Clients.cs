@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TogglApi.Models;
 using TogglApi.NetworkModels;
+using System.Net;
 
 
 namespace TogglApi.Entities
@@ -62,8 +63,6 @@ namespace TogglApi.Entities
             UpdateClientRequest updateClientRequest = new UpdateClientRequest() { client = entity };
             request.AddBody(updateClientRequest);
             
-            string test = entity.ToString();
-
             var resp = client.Execute<ClientResponse>(request);
 
             var content = resp.Content;
@@ -81,8 +80,6 @@ namespace TogglApi.Entities
             UpdateClientRequest updateClientRequest = new UpdateClientRequest() { client = entity };
             request.AddBody(updateClientRequest);
 
-            string test = entity.ToString();
-
             var resp = client.Execute<ClientResponse>(request);
 
             var content = resp.Content;
@@ -97,17 +94,11 @@ namespace TogglApi.Entities
             request.AddTogglAuth(_auth);
             request.AddUrlSegment("clientId", entity.id.ToString());
             request.RequestFormat = DataFormat.Json;
-            UpdateClientRequest updateClientRequest = new UpdateClientRequest() { client = entity };
-            request.AddBody(updateClientRequest);
-
-            string test = entity.ToString();
-
+            
             var resp = client.Execute<ClientResponse>(request);
-
-            var content = resp.Content;
-
+             
             bool result = false;
-            if (content.ToString() == "200 OK") { result = true; };
+            if (resp.StatusCode == HttpStatusCode.OK) { result = true; };
             return result;
         }
 

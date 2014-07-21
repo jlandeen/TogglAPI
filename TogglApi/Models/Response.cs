@@ -32,4 +32,9 @@ namespace TogglApi.Models
         public override Project data { get; set; }
     }
 
+    public class ProjectUserResponse : TogglResponse<ProjectUser>
+    {
+        public override ProjectUser data { get; set; }
+    }
+
 }
