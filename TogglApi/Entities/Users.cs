@@ -76,6 +76,8 @@ namespace TogglApi.Entities
             }
             catch(Exception ex)
             {
+                //adding following line to prevent compile warning for variable not used but declared
+                string test = ex.InnerException.ToString();
                  
             }
             return new List<TimeEntry>();
